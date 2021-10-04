@@ -7,8 +7,12 @@ public class Funcionário extends Pessoa{
 
     }
 
-    public Funcionário(String nome, String cpf, String telefone, String ctps) {
-        super(nome, cpf, telefone);
+    public Funcionário(String nome, String cpf) {
+        super(nome, cpf);
+    }
+
+    public Funcionário(String nome, String cpf, String ctps) {
+        super(nome, cpf);
         this.ctps = ctps;
     }
 

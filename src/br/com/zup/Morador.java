@@ -7,8 +7,12 @@ public class Morador extends Pessoa{
 
     }
 
-    public Morador(String nome, String cpf, String telefone, double renda) {
-        super(nome, cpf, telefone);
+    public Morador(String nome, String cpf) {
+        super(nome, cpf);
+    }
+
+    public Morador(String nome, String cpf, double renda) {
+        super(nome, cpf);
         this.renda = renda;
     }
 

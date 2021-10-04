@@ -3,16 +3,14 @@ package br.com.zup;
 public abstract class Pessoa {
         private String nome;
         private String cpf;
-        private String telefone;
 
         public Pessoa() {
 
         }
 
-        public Pessoa(String nome, String cpf, String telefone) {
+        public Pessoa(String nome, String cpf) {
             this.nome = nome;
             this.cpf = cpf;
-            this.telefone = telefone;
         }
 
         public String getNome() {
@@ -31,20 +29,11 @@ public abstract class Pessoa {
             this.cpf = cpf;
         }
 
-        public String getTelefone() {
-            return telefone;
-        }
-
-        public void setTelefone(String telefone) {
-            this.telefone = telefone;
-        }
-
         @Override
         public String toString() {
             StringBuilder retorno = new StringBuilder();
             retorno.append("Nome: " + nome + ".");
             retorno.append("\t CPF: " + cpf + ".");
-            retorno.append("\t Telefone: " + telefone + ".");
             return retorno.toString();
         }
 }

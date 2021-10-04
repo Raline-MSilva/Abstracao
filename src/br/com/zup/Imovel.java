@@ -13,10 +13,11 @@ public class Imovel {
 
     }
 
-    public Imovel(String endereçoImovel, double valorAluguel, Funcionário funcionárioResponsavel) {
+    public Imovel(String endereçoImovel, double valorAluguel, Funcionário funcionárioResponsavel, List<Morador> moradores) {
         this.endereçoImovel = endereçoImovel;
         this.valorAluguel = valorAluguel;
         this.funcionárioResponsavel = funcionárioResponsavel;
+        this.moradores = moradores;
     }
 
     public String getEndereçoImovel() {
