@@ -9,8 +9,9 @@ public class Imovel {
     private Funcionário funcionárioResponsavel;
     List<Morador> moradores = new ArrayList<>();
 
-    public Imovel() {
-
+    public Imovel(String endereçoImovel, double valorAluguel) {
+        this.endereçoImovel = endereçoImovel;
+        this.valorAluguel = valorAluguel;
     }
 
     public Imovel(String endereçoImovel, double valorAluguel, Funcionário funcionárioResponsavel) {
