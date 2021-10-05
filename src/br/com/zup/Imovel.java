@@ -47,6 +47,17 @@ public class Imovel {
     public void addMorador(Morador novoMorador) {
         moradores.add(novoMorador);
     }
+    public void excluirMorador(String endereçoImovel){
+        Morador moradorSerDeletado = null;
+
+        for (Morador referencia: moradores) {
+            if (referencia.getCpf().equals(endereçoImovel)){
+                moradorSerDeletado = referencia;
+                System.out.println("Endereço encontrado e deletado!");
+            }
+        }
+        moradores.remove(moradorSerDeletado);
+    }
 
     @Override
     public String toString() {

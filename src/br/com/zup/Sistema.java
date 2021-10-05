@@ -60,7 +60,7 @@ public class Sistema {
 
     public static void Executar() {
         boolean menu = true;
-        Imobiliaria imobiliaria = new Imobiliaria(listaDeImoveis());
+        Imobiliaria imobiliaria = new Imobiliaria();
 
         while (menu) {
             menu();
