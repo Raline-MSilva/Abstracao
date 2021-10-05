@@ -42,6 +42,12 @@ public class Sistema {
         moradores.add(cadastrarMoradores());
         return moradores;
     }
+    public static List listaDeImoveis(){
+        List <Imovel> imovels = new ArrayList<>();
+        System.out.println("--------------------------");
+        imovels.add(cadastrarImovel());
+        return imovels;
+    }
 
     public static Imovel cadastrarImovel() {
         String endereco = capturarDados("Digite o endereço do imóvel: ").nextLine();
