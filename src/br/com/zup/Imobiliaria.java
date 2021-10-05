@@ -10,6 +10,10 @@ public class Imobiliaria {
 
     }
 
+    public Imobiliaria(List<Imovel> imovels) {
+        this.imovels = imovels;
+    }
+
     public List<Imovel> getImovels() {
         return imovels;
     }

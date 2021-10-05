@@ -49,6 +49,7 @@ public class Sistema {
         return imovels;
     }
 
+
     public static Imovel cadastrarImovel() {
         String endereco = capturarDados("Digite o endereço do imóvel: ").nextLine();
         double valorDoAluguel = capturarDados("Informe o valor do Aluguel R$: ").nextDouble();
@@ -59,7 +60,7 @@ public class Sistema {
 
     public static void Executar() {
         boolean menu = true;
-        Imobiliaria imobiliaria = new Imobiliaria();
+        Imobiliaria imobiliaria = new Imobiliaria(listaDeImoveis());
 
         while (menu) {
             menu();
