@@ -37,9 +37,10 @@ public class Sistema {
     public static Morador receberMoradores() {
         String nome = capturarDados("Digite o nome do morador: ").nextLine();
         String cpf = capturarDados("Digite o cpf do morador: ").nextLine();
+        String email = capturarDados("Digite o email do morador.").nextLine();
         double renda = capturarDados("Digite o salario do morador: ").nextDouble();
 
-        Morador morador1 = new Morador(nome, cpf, renda);
+        Morador morador1 = new Morador(nome, cpf, email, renda);
         return morador1;
         //Colhendo dados para cadastro
     }
