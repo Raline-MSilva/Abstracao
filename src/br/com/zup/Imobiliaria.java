@@ -25,7 +25,9 @@ public class Imobiliaria {
     @Override
     public String toString() {
         StringBuilder retorno = new StringBuilder();
-        retorno.append("\tImovels: " + imovels);
+        retorno.append("Quantidade de Imovéis: " + imovels.size());
+        retorno.append("Imovéis: " + imovels);
+        retorno.append("\n" + imovels);
         return retorno.toString();
     }
 }

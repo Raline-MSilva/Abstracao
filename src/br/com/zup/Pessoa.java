@@ -32,8 +32,8 @@ public abstract class Pessoa {
         @Override
         public String toString() {
             StringBuilder retorno = new StringBuilder();
-            retorno.append("Nome: " + nome + ".");
-            retorno.append("\t CPF: " + cpf + ".");
+            retorno.append("\nNome: " + nome + ".");
+            retorno.append("\n CPF: " + cpf + ".");
             return retorno.toString();
         }
 }

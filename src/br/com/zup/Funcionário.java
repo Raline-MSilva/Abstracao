@@ -27,7 +27,7 @@ public class Funcionário extends Pessoa{
     public String toString() {
         StringBuilder retorno = new StringBuilder();
         retorno.append(super.toString());
-        retorno.append("\tCTPS: " + ctps);
+        retorno.append("\nCTPS: " + ctps);
         return retorno.toString();
     }
 }

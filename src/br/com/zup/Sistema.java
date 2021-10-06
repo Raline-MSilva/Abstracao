@@ -1,7 +1,6 @@
 package br.com.zup;
 
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Scanner;
 
 public class Sistema {
@@ -36,25 +35,11 @@ public class Sistema {
         return funcionário1;
     }
 
-    public static List listaDeMoradores() {
-        List<Morador> moradores = new ArrayList<>();
-        System.out.println("------------------------");
-        moradores.add(cadastrarMoradores());
-        return moradores;
-    }
-    public static List listaDeImoveis(){
-        List <Imovel> imovels = new ArrayList<>();
-        System.out.println("--------------------------");
-        imovels.add(cadastrarImovel());
-        return imovels;
-    }
-
-
     public static Imovel cadastrarImovel() {
         String endereco = capturarDados("Digite o endereço do imóvel: ").nextLine();
         double valorDoAluguel = capturarDados("Informe o valor do Aluguel R$: ").nextDouble();
 
-        Imovel imovel1 = new Imovel(endereco, valorDoAluguel, cadastrarFuncionario(), listaDeMoradores());
+        Imovel imovel1 = new Imovel(endereco, valorDoAluguel, cadastrarFuncionario());
         return imovel1;
     }
 
@@ -68,7 +53,17 @@ public class Sistema {
             int opcaoDesejada = capturarDados("Digite a opção que Deseja: ").nextInt();
 
             if (opcaoDesejada == 1) {
+                Imovel imovel = cadastrarImovel();
                 imobiliaria.addImovel(cadastrarImovel());
+
+                //cadastrar mais de um morador
+                int opcao = capturarDados("Digite quantos moradores você deseja adicionar:").nextInt();
+                for (int i = 0; i < opcao; i++) {
+                    Morador morador = cadastrarMoradores();
+                    imovel.addMorador(morador);
+
+                }
+
             } else if (opcaoDesejada == 2) {
                 System.out.println(imobiliaria);
             } else if (opcaoDesejada == 3) {

@@ -13,11 +13,10 @@ public class Imovel {
 
     }
 
-    public Imovel(String endereçoImovel, double valorAluguel, Funcionário funcionárioResponsavel, List<Morador> moradores) {
+    public Imovel(String endereçoImovel, double valorAluguel, Funcionário funcionárioResponsavel) {
         this.endereçoImovel = endereçoImovel;
         this.valorAluguel = valorAluguel;
         this.funcionárioResponsavel = funcionárioResponsavel;
-        this.moradores = moradores;
     }
 
     public String getEndereçoImovel() {
@@ -47,25 +46,26 @@ public class Imovel {
     public void addMorador(Morador novoMorador) {
         moradores.add(novoMorador);
     }
-    public void excluirMorador(String endereçoImovel){
+    /*public void excluirMorador(String endereçoImovel) {
         Morador moradorSerDeletado = null;
 
         for (Morador referencia: moradores) {
             if (referencia.getCpf().equals(endereçoImovel)){
                 moradorSerDeletado = referencia;
-                System.out.println("Endereço encontrado e deletado!");
+                System.out.println("Morador encontrado e deletado!");
             }
         }
         moradores.remove(moradorSerDeletado);
-    }
+         */
 
     @Override
     public String toString() {
         StringBuilder retorno = new StringBuilder();
-        retorno.append("\tEndereço do Imóvel: " + endereçoImovel);
-        retorno.append("\tValor do Aluguel: " + valorAluguel);
-        retorno.append("\tFuncionário Responsável: " + funcionárioResponsavel);
-        retorno.append("\tmoradores=" + moradores);
+        retorno.append("\nEndereço do Imóvel: " + endereçoImovel);
+        retorno.append("\nValor do Aluguel R$: " + valorAluguel);
+        retorno.append("\nFuncionário Responsável: " + funcionárioResponsavel);
+        retorno.append("\nQuantidade de moradores: " + moradores.size());
+        retorno.append("\nmoradores=" + moradores);
         return retorno.toString();
     }
 }
