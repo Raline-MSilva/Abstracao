@@ -9,7 +9,7 @@ public class Sistema {
         return new Scanner(System.in);
     }
 
-    //percorrer lista de imoveis e moradores
+    //percorrer lista de imoveis e moradores. Usando dois for each
     private static boolean autenticarCpf(Imobiliaria imobiliaria, Morador morador) {
         String cpf = morador.getCpf();
         for (Imovel listaDeImoveis : imobiliaria.getImovels()) {
@@ -29,9 +29,11 @@ public class Sistema {
         System.out.println("BEM VINDE A IMOBILIARIA MORADA PARA LUZ");
         System.out.println("Digite 1 - Para cadastrar um imóvel. ");
         System.out.println("Digite 2 - Para exibir os imóveis");
-        System.out.println("Digite 3 - Para sair da Imobiliaria");
+        System.out.println("Digite 3 - Para remover um morador pelo CPF");
+        System.out.println("Digite 4 - Para sair da Imobiliária");
     }
 
+    //aqui recebemos só um morador
     public static Morador receberMoradores() {
         String nome = capturarDados("Digite o nome do morador: ").nextLine();
         String cpf = capturarDados("Digite o cpf do morador: ").nextLine();
@@ -42,7 +44,7 @@ public class Sistema {
         //Colhendo dados para cadastro
     }
 
-    //refatoração
+    //refatoração// cadastrar mais de um morador.
     public static void cadastrarMoradores(Imobiliaria imobiliaria, Imovel imovel) {
         int qntMoradores = capturarDados("Informe quantos moradores deseja adicionar:").nextInt();
         int contadorDeMoradores = 0;
@@ -105,11 +107,24 @@ public class Sistema {
             menu();
 
             int opcaoDesejada = capturarDados("Digite a opção que Deseja: ").nextInt();
-            if (opcaoDesejada == 1){
+            if (opcaoDesejada == 1) {
                 Imovel imovel = cadastrarImovel();
+                imobiliaria.addImovel(imovel);
+                //cadastrar moradores na imobiliaria e imovel
+                cadastrarMoradores(imobiliaria, imovel);
+            } else if (opcaoDesejada == 2) {
+                System.out.println(imobiliaria);
+
+            } else if (opcaoDesejada == 3) {
+                //excluir um morador que ta dentro da imobiliaria
+                String remover = excluirMoradorPorCpf(imobiliaria);
+                //exibir a remoção
+                System.out.println(remover);
+
+            } else if (opcaoDesejada == 4) {
+                menu = false;
+                System.out.println("Cê saiu da imobiliaria");
             }
-
-
         }
     }
 }

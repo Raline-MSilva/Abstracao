@@ -63,9 +63,11 @@ public class Imovel {
         StringBuilder retorno = new StringBuilder();
         retorno.append("\nEndereço do Imóvel: " + endereçoImovel);
         retorno.append("\nValor do Aluguel R$: " + valorAluguel);
+        retorno.append("\n---------------------------------------------");
         retorno.append("\nFuncionário Responsável: " + funcionárioResponsavel);
+        retorno.append("\n------------------------------------------------------");
         retorno.append("\nQuantidade de moradores: " + moradores.size());
-        retorno.append("\nmoradores=" + moradores);
+        retorno.append("\nmoradores" + moradores);
         return retorno.toString();
     }
 }
