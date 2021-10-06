@@ -41,25 +41,42 @@ public class Sistema {
         return morador1;
         //Colhendo dados para cadastro
     }
+
     //refatoração
-    public static void cadastrarMoradores(Imobiliaria imobiliaria, Imovel imovel){
+    public static void cadastrarMoradores(Imobiliaria imobiliaria, Imovel imovel) {
         int qntMoradores = capturarDados("Informe quantos moradores deseja adicionar:").nextInt();
         int contadorDeMoradores = 0;
 
-        while (contadorDeMoradores < qntMoradores){
+        while (contadorDeMoradores < qntMoradores) {
+            //instancio um morador.
             Morador morador = receberMoradores();
+            //verifico o cpf dentro da imobiliaria.
             boolean cpfExistente = autenticarCpf(imobiliaria, morador);
-
-            if (cpfExistente == true){
+            // se houver cpf iguais, não cadastro, se não houver, cadastro.
+            if (cpfExistente == true) {
                 System.out.println("CPF já existe no sistema!");
-            }else {
+            } else {
                 imovel.addMorador(morador);
-                contadorDeMoradores ++;
+                contadorDeMoradores++;
             }
         }
 
     }
-
+        //removendo morador
+    public static String excluirMoradorPorCpf(Imobiliaria imobiliaria){
+        //pedindo o cpf do morador a ser excluído
+        String cpf = capturarDados("Informe o CPF do morador a ser excluído").nextLine();
+        // for para percorrer a lista de moradores dentro dos imoveis e verificar o cpf
+        for (Imovel listaDeImoveis : imobiliaria.getImovels()) {
+            for (Morador listaDeMoradores : listaDeImoveis.getMoradores()){
+                if (listaDeMoradores.getCpf().equals(cpf)){
+                    listaDeImoveis.getMoradores().remove(listaDeMoradores);
+                    return "Morador removido";
+                }
+            }
+        }
+        return "Morador não cadastrado no sistema";
+    }
 
 }
 
