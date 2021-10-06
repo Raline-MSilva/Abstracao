@@ -69,6 +69,7 @@ public class Sistema {
         // for para percorrer a lista de moradores dentro dos imoveis e verificar o cpf
         for (Imovel listaDeImoveis : imobiliaria.getImovels()) {
             for (Morador listaDeMoradores : listaDeImoveis.getMoradores()){
+                // se o cpf digitado for igual ao já existente no sistema
                 if (listaDeMoradores.getCpf().equals(cpf)){
                     listaDeImoveis.getMoradores().remove(listaDeMoradores);
                     return "Morador removido";
@@ -77,6 +78,23 @@ public class Sistema {
         }
         return "Morador não cadastrado no sistema";
     }
+    public static Funcionário cadastrarFuncionario () {
+        String nome = capturarDados("Digite o nome do Funcionário: ").nextLine();
+        String cpf = capturarDados("Informe o CPF do funcionario: ").nextLine();
+        String ctps = capturarDados("Informe a CTPS: ").nextLine();
+
+        Funcionário funcionário1 = new Funcionário(nome, cpf, ctps);
+        return funcionário1;
+    }
+
+    public static Imovel cadastrarImovel () {
+        String endereco = capturarDados("Digite o endereço do imóvel: ").nextLine();
+        double valorDoAluguel = capturarDados("Informe o valor do Aluguel R$: ").nextDouble();
+
+        Imovel imovel1 = new Imovel(endereco, valorDoAluguel, cadastrarFuncionario());
+        return imovel1;
+    }
+
 
 }
 
