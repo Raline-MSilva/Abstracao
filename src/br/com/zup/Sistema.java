@@ -9,69 +9,84 @@ public class Sistema {
         return new Scanner(System.in);
     }
 
-    public static void menu() {
-        System.out.println("BEM VINDE A IMOBILIARIA MORADA PARA LUZ");
-        System.out.println("Digite 1 - Para cadastrar um imóvel. ");
-        System.out.println("Digite 2 - Para exibir os imóveis");
-        System.out.println("Digite 3 - Para sair da Imobiliaria");
-    }
-
-
-    public static Morador cadastrarMoradores() {
-        String nome = capturarDados("Digite o nome do morador: ").nextLine();
-        String cpf = capturarDados("Digite o cpf do morador: ").nextLine();
-        double renda = capturarDados("Digite o salario do morador: ").nextDouble();
-
-        Morador morador1 = new Morador(nome, cpf, renda);
-        return morador1;
-    }
-
-    public static Funcionário cadastrarFuncionario() {
-        String nome = capturarDados("Digite o nome do Funcionário: ").nextLine();
-        String cpf = capturarDados("Informe o CPF do funcionario: ").nextLine();
-        String ctps = capturarDados("Informe a CTPS: ").nextLine();
-
-        Funcionário funcionário1 = new Funcionário(nome, cpf, ctps);
-        return funcionário1;
-    }
-
-    public static Imovel cadastrarImovel() {
-        String endereco = capturarDados("Digite o endereço do imóvel: ").nextLine();
-        double valorDoAluguel = capturarDados("Informe o valor do Aluguel R$: ").nextDouble();
-
-        Imovel imovel1 = new Imovel(endereco, valorDoAluguel, cadastrarFuncionario());
-        return imovel1;
-    }
-
-    public static void Executar() {
-        boolean menu = true;
-        Imobiliaria imobiliaria = new Imobiliaria();
-
-        while (menu) {
-            menu();
-
-            int opcaoDesejada = capturarDados("Digite a opção que Deseja: ").nextInt();
-
-            if (opcaoDesejada == 1) {
-                Imovel imovel = cadastrarImovel();
-                imobiliaria.addImovel(cadastrarImovel());
-
-                //cadastrar mais de um morador
-                int opcao = capturarDados("Digite quantos moradores você deseja adicionar:").nextInt();
-                for (int i = 0; i < opcao; i++) {
-                    Morador morador = cadastrarMoradores();
-                    imovel.addMorador(morador);
-
+    //percorrer lista de imoveis e moradores
+    private static boolean autenticarCpf(Imobiliaria imobiliaria, Morador morador) {
+        String cpf = morador.getCpf();
+        for (Imovel listaDeImoveis : imobiliaria.getImovels()) {
+            //vou pegar dentro da imobiliaria minha lista de imoveis.
+            for (Morador listaDeMoradores : listaDeImoveis.getMoradores()) {
+                //pegar meus moradores dentro da lista de imoveis
+                if (listaDeMoradores.getCpf().equals(cpf)) {
+                    // sendo igual, cpf ja cadastrado.
+                    return true;
                 }
-
-            } else if (opcaoDesejada == 2) {
-                System.out.println(imobiliaria);
-            } else if (opcaoDesejada == 3) {
-                menu = false;
-                System.out.println("Cê saiu da imobiliaria");
             }
         }
 
-    }
 
-}
+        public static void menu () {
+            System.out.println("BEM VINDE A IMOBILIARIA MORADA PARA LUZ");
+            System.out.println("Digite 1 - Para cadastrar um imóvel. ");
+            System.out.println("Digite 2 - Para exibir os imóveis");
+            System.out.println("Digite 3 - Para sair da Imobiliaria");
+        }
+
+
+        public static Morador cadastrarMoradores () {
+            String nome = capturarDados("Digite o nome do morador: ").nextLine();
+            String cpf = capturarDados("Digite o cpf do morador: ").nextLine();
+            double renda = capturarDados("Digite o salario do morador: ").nextDouble();
+
+            Morador morador1 = new Morador(nome, cpf, renda);
+            return morador1;
+        }
+
+        public static Funcionário cadastrarFuncionario () {
+            String nome = capturarDados("Digite o nome do Funcionário: ").nextLine();
+            String cpf = capturarDados("Informe o CPF do funcionario: ").nextLine();
+            String ctps = capturarDados("Informe a CTPS: ").nextLine();
+
+            Funcionário funcionário1 = new Funcionário(nome, cpf, ctps);
+            return funcionário1;
+        }
+
+        public static Imovel cadastrarImovel () {
+            String endereco = capturarDados("Digite o endereço do imóvel: ").nextLine();
+            double valorDoAluguel = capturarDados("Informe o valor do Aluguel R$: ").nextDouble();
+
+            Imovel imovel1 = new Imovel(endereco, valorDoAluguel, cadastrarFuncionario());
+            return imovel1;
+        }
+
+        public static void Executar () {
+            boolean menu = true;
+            Imobiliaria imobiliaria = new Imobiliaria();
+
+            while (menu) {
+                menu();
+
+                int opcaoDesejada = capturarDados("Digite a opção que Deseja: ").nextInt();
+
+                if (opcaoDesejada == 1) {
+                    Imovel imovel = cadastrarImovel();
+                    imobiliaria.addImovel(imovel);
+
+                    //cadastrar mais de um morador
+                    int opcao = capturarDados("Digite quantos moradores você deseja adicionar:").nextInt();
+                    for (int i = 0; i < opcao; i++) {
+                        Morador morador = cadastrarMoradores();
+                        imovel.addMorador(morador);
+
+                    }
+
+                } else if (opcaoDesejada == 2) {
+                    System.out.println(imobiliaria);
+                } else if (opcaoDesejada == 3) {
+                    menu = false;
+                    System.out.println("Cê saiu da imobiliaria");
+                }
+            }
+
+        }
+
+    }
