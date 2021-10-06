@@ -62,15 +62,16 @@ public class Sistema {
         }
 
     }
-        //removendo morador
-    public static String excluirMoradorPorCpf(Imobiliaria imobiliaria){
+
+    //removendo morador
+    public static String excluirMoradorPorCpf(Imobiliaria imobiliaria) {
         //pedindo o cpf do morador a ser excluído
         String cpf = capturarDados("Informe o CPF do morador a ser excluído").nextLine();
         // for para percorrer a lista de moradores dentro dos imoveis e verificar o cpf
         for (Imovel listaDeImoveis : imobiliaria.getImovels()) {
-            for (Morador listaDeMoradores : listaDeImoveis.getMoradores()){
+            for (Morador listaDeMoradores : listaDeImoveis.getMoradores()) {
                 // se o cpf digitado for igual ao já existente no sistema
-                if (listaDeMoradores.getCpf().equals(cpf)){
+                if (listaDeMoradores.getCpf().equals(cpf)) {
                     listaDeImoveis.getMoradores().remove(listaDeMoradores);
                     return "Morador removido";
                 }
@@ -78,7 +79,8 @@ public class Sistema {
         }
         return "Morador não cadastrado no sistema";
     }
-    public static Funcionário cadastrarFuncionario () {
+
+    public static Funcionário cadastrarFuncionario() {
         String nome = capturarDados("Digite o nome do Funcionário: ").nextLine();
         String cpf = capturarDados("Informe o CPF do funcionario: ").nextLine();
         String ctps = capturarDados("Informe a CTPS: ").nextLine();
@@ -87,7 +89,7 @@ public class Sistema {
         return funcionário1;
     }
 
-    public static Imovel cadastrarImovel () {
+    public static Imovel cadastrarImovel() {
         String endereco = capturarDados("Digite o endereço do imóvel: ").nextLine();
         double valorDoAluguel = capturarDados("Informe o valor do Aluguel R$: ").nextDouble();
 
@@ -95,7 +97,21 @@ public class Sistema {
         return imovel1;
     }
 
+    public static void Executar() {
+        boolean menu = true;
+        Imobiliaria imobiliaria = new Imobiliaria();
 
+        while (menu) {
+            menu();
+
+            int opcaoDesejada = capturarDados("Digite a opção que Deseja: ").nextInt();
+            if (opcaoDesejada == 1){
+                Imovel imovel = cadastrarImovel();
+            }
+
+
+        }
+    }
 }
 
 
