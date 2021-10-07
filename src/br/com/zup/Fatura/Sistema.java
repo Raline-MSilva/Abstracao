@@ -20,13 +20,25 @@ public class Sistema {
         System.out.println("Digite 3 para sair do sistema");
     }
 
-    //recebendo informações do consumidor
-    public static void cadastrarConsumidor (){
-        String nome = capturarDados("Informe o nome do consumidor").nextLine();
-        String email = capturarDados("Informe o email do consumidor").nextLine();
-    }
     //percorrer lista para mostrar o tipo de consumidor
     public static void menuTipoConsumidor (){
         List<TipoConsumidor> consumidores = ServiçoConsumidor.mostrarTipos();
+        System.out.println("Tipos disponivéis: ");
+
+        for (TipoConsumidor consumidorReferencia: consumidores){
+            System.out.println(consumidorReferencia);
+        }
+    }
+
+    //recebendo informações do consumidor
+    public static Consumidor cadastrarConsumidor () throws Exception{
+        String nome = capturarDados("Informe o nome do consumidor").nextLine();
+        String email = capturarDados("Informe o email do consumidor").nextLine();
+        //chamo o metodo pra mostrar os tipos
+        menuTipoConsumidor();
+        //depois que apresentar o menu pego a opção escolhida
+        String tipoConsumidor = capturarDados("Informe seu tipo").nextLine();
+        return ServiçoConsumidor.cadastrarConsumidor(nome, email,tipoConsumidor);
+
     }
 }
