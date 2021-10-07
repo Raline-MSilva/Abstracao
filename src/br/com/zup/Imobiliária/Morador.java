@@ -1,6 +1,6 @@
-package br.com.zup;
+package br.com.zup.Imobiliária;
 
-public class Morador extends Pessoa{
+public class Morador extends Pessoa {
     private String email;
     private double renda;
 

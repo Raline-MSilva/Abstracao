@@ -1,6 +1,6 @@
-package br.com.zup;
+package br.com.zup.Imobiliária;
 
-public class Funcionário extends Pessoa{
+public class Funcionário extends Pessoa {
     private String ctps;
 
     public Funcionário() {

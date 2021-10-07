@@ -1,4 +1,4 @@
-package br.com.zup;
+package br.com.zup.Imobiliária;
 
 public abstract class Pessoa {
         private String nome;

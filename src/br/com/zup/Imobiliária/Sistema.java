@@ -1,5 +1,4 @@
-package br.com.zup;
-
+package br.com.zup.Imobiliária;
 
 import java.util.Scanner;
 
