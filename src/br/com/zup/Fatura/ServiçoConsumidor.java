@@ -37,6 +37,7 @@ public class ServiçoConsumidor {
 
     //percorrer a lista e exibir
     public static void listarConsumidores() {
+        System.out.println("Quantidade de consumidores: " + consumidores.size());
         for (Consumidor consumidor : consumidores) {
             System.out.println(consumidor);
         }
