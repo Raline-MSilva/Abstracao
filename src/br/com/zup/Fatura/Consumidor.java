@@ -42,6 +42,7 @@ public class Consumidor {
     @Override
     public String toString() {
         StringBuilder retorno = new StringBuilder();
+        retorno.append("Consumidores");
         retorno.append("\n Nome: " + nome);
         retorno.append("\n Email: " + email);
         retorno.append("\n Tipo do Consumidor: " + consumidor);
