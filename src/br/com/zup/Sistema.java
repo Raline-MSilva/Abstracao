@@ -59,8 +59,12 @@ public class Sistema {
             if (cpfExistente == true) {
                 System.out.println("CPF já existe no sistema!");
             } else {
-                imovel.addMorador(morador);
-                contadorDeMoradores++;
+                if (!morador.getEmail().contains("@")){
+                    System.out.println("Este email é inválido!");
+                } else {
+                    imovel.addMorador(morador);
+                    contadorDeMoradores++;
+                }
             }
         }
 
