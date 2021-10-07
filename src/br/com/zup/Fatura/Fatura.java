@@ -40,7 +40,7 @@ public class Fatura {
         StringBuilder retorno = new StringBuilder();
         retorno.append("Extrato da Fatura: ");
         retorno.append("\n Consumidor: " + consumidor);
-        retorno.append("\n Valor: R$ "  + valor);
+        retorno.append("\n Valor da Fatura: R$ "  + valor);
         retorno.append("\n Data de vencimento: " + dataDeVencimento);
         return retorno.toString();
     }
