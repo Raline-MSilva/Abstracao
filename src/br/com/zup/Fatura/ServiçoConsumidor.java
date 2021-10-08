@@ -32,6 +32,7 @@ public class ServiçoConsumidor {
 
         Consumidor consumidor1 = new Consumidor(nome, email, consumidor);
         consumidores.add(consumidor1);
+        //me retorna o consumidor
         return consumidor1;
     }
 
@@ -41,5 +42,14 @@ public class ServiçoConsumidor {
         for (Consumidor consumidor : consumidores) {
             System.out.println(consumidor);
         }
+    }
+    //percorro a lista para verificar emails iguais
+    public static Consumidor encontrarConsumidorPeloEmail (String email) throws Exception{
+        for (Consumidor consumidorReferencia : consumidores){
+            if (consumidorReferencia.getEmail().equals(email)){
+                return consumidorReferencia;
+            }
+        }
+        throw new Exception("Consumidor não encontrado no sistema");
     }
 }

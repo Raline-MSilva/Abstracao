@@ -41,4 +41,15 @@ public class Sistema {
         return ServiçoConsumidor.cadastrarConsumidor(nome, email,tipoConsumidor);
 
     }
+    //cadastrar fatura
+
+    public static Fatura cadastrarFatura() throws Exception {
+        String email = capturarDados("Informe o email do consumidor: ").nextLine();
+        double valorDaFatura = capturarDados("Informe o valor da fatura: ").nextDouble();
+        String dataDeVencimento = capturarDados("Informe a data de vencimento: ").nextLine();
+
+        Fatura fatura = ServiçoFatura.cadastrarFatura(email,valorDaFatura,dataDeVencimento);
+
+        return fatura;
+    }
 }
