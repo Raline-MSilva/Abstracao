@@ -50,6 +50,23 @@ public class ServiçoConsumidor {
                 return consumidorReferencia;
             }
         }
+        //caso os emails não seja iguais, não será encontrado o consumidor
         throw new Exception("Consumidor não encontrado no sistema");
+    }
+
+    //verificar se o email existe percorrendo a lista
+    public static void verificarEmailExistente(String email) throws Exception{
+        for (Consumidor consumidorReferencia : consumidores){
+            if (consumidorReferencia.getEmail().equals(email)){
+                throw new Exception("Este email ja esta cadastrado");
+            }
+        }
+    }
+
+    //verificar emails sem os @
+    public static void autenticarEmail (String email) throws Exception{
+        if (!email.contains("@")){
+            throw new Exception("Email inválido");
+        }
     }
 }

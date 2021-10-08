@@ -6,7 +6,7 @@ public class Main {
 
             Sistema.cadastrarConsumidor();
             Sistema.cadastrarFatura();
-            ServiçoConsumidor.listarConsumidores();
+            //ServiçoConsumidor.listarConsumidores();
 
         }catch (Exception deuErro){
             System.out.println(deuErro.getMessage());
