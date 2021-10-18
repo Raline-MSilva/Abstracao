@@ -2,14 +2,15 @@ package br.com.zup.Fatura;
 
 public class Main {
     public static void main(String[] args) {
-        try {
+        boolean continuarMenu = true;
 
-            Sistema.cadastrarConsumidor();
-            Sistema.cadastrarFatura();
-            //ServiçoConsumidor.listarConsumidores();
+        while (continuarMenu) {
+            try {
+                continuarMenu = Sistema.Executar();
 
-        }catch (Exception deuErro){
-            System.out.println(deuErro.getMessage());
+            } catch (Exception deuErro) {
+                System.out.println(deuErro.getMessage());
+            }
         }
     }
 }
